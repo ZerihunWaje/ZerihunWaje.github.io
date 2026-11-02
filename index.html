@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Zerihun Waje – data science lecturer at SRH University Berlin and analytics engineer with a background in structural engineering.">
+<meta property="og:title" content="Zerihun Waje – Data Science & Analytics Engineering">
+<meta property="og:description" content="From structural engineer to data science lecturer and analytics engineer in Berlin.">
+<meta property="og:type" content="website">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Zerihun Waje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm column of sections on a quiet drafting grid; the hero drawing and project illustrations carry the visual weight. */
+:root{
+  --paper:#f4f6f8;
+  --sheet:#ffffff;
+  --ink:#121923;
+  --muted:#5b6674;
+  --line:#dde2e8;
+  --grid:rgba(31,79,209,.07);
+  --accent:#1f4fd1;
+  --accent-soft:#eaf0fd;
+  --signal:#e2661b;
+  --signal-soft:#fdeee4;
+  --shadow:0 1px 2px rgba(18,25,35,.04), 0 8px 24px -12px rgba(18,25,35,.12);
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --r:10px;
+  --s--1:.82rem; --s-0:1rem; --s-1:1.18rem; --s-2:1.5rem; --s-3:clamp(1.8rem,3.6vw,2.4rem); --s-4:clamp(2.5rem,6.4vw,4.6rem);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0d1218; --sheet:#141b24; --ink:#e8edf3; --muted:#97a3b1; --line:#253140; --grid:rgba(124,157,255,.06);
+  --accent:#86a5ff; --accent-soft:#1b2644; --signal:#ff8d4d; --signal-soft:#3a2416;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.6); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#0d1218; --sheet:#141b24; --ink:#e8edf3; --muted:#97a3b1; --line:#253140; --grid:rgba(124,157,255,.06);
+  --accent:#86a5ff; --accent-soft:#1b2644; --signal:#ff8d4d; --signal-soft:#3a2416;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.6); color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s-0);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--sheet)}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:var(--s--1);letter-spacing:.03em}
+.label{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* ---------- Header ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--sheet) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--ink)}
+.bubble{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid currentColor;border-radius:50%;font-family:var(--f-mono);font-size:.7rem;font-weight:500;flex:none}
+.mark .bubble{color:var(--accent);background:var(--accent-soft);border-color:var(--accent)}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{position:relative;color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;padding:7px 12px;border-radius:8px;transition:color .2s,background .2s}
+.nav a:hover{color:var(--ink);background:var(--paper)}
+.nav a.active{color:var(--accent);background:var(--accent-soft)}
+.tools{display:flex;align-items:center;gap:6px}
+.icon-btn{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:9px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;transition:border-color .2s,transform .2s}
+.icon-btn:hover{border-color:var(--ink)}
+.icon-btn svg{width:18px;height:18px}
+.menu-btn{display:none}
+.sun{display:none}
+:root[data-theme="dark"] .sun{display:block} :root[data-theme="dark"] .moon{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .sun{display:block}:root:not([data-theme="light"]) .moon{display:none}}
+@media (max-width:760px){
+  html{scroll-padding-top:120px}
+  .bar .wrap{flex-wrap:wrap;row-gap:10px;padding-block:10px}
+  .nav{order:3;width:100%;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:none;font-size:.85rem;padding:6px 12px;border:1px solid var(--line);border-radius:999px}
+  .nav a.active{border-color:transparent}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--sheet)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 70% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 30%,transparent 75%);pointer-events:none}
+.hero .wrap{position:relative;padding-block:64px 56px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:880px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero .wrap{padding-block:44px 40px}}
+.avail{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:.85rem;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#1f9d55;box-shadow:0 0 0 0 rgba(31,157,85,.5);animation:ping 2.2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(31,157,85,.45)}70%{box-shadow:0 0 0 8px rgba(31,157,85,0)}100%{box-shadow:0 0 0 0 rgba(31,157,85,0)}}
+.hero h1{font-size:var(--s-4);font-weight:800;letter-spacing:-.025em;margin-top:22px}
+.hero h1 .hl{color:var(--accent);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.14em;background:var(--signal);opacity:.85;border-radius:2px;transform-origin:left;animation:underline .9s .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes underline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.lede{margin-top:22px;font-size:var(--s-1);color:var(--muted);max-width:54ch}
+.lede strong{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:9px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--sheet);transition:transform .2s,border-color .2s,box-shadow .2s}
+.btn svg{width:16px;height:16px}
+.btn:hover{transform:translateY(-2px);border-color:var(--ink);box-shadow:var(--shadow)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
+.btn.primary:hover svg{transform:translateX(3px)}
+.btn.primary svg{transition:transform .2s}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;color:var(--muted);font-size:.9rem}
+.facts span{display:inline-flex;align-items:center;gap:7px}
+.facts svg{width:15px;height:15px;color:var(--accent)}
+
+/* Hero drawing */
+.drawing{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);position:relative}
+.drawing svg{display:block;width:100%;height:auto}
+.drawing figcaption{display:flex;justify-content:space-between;gap:12px;border-top:1px dashed var(--line);margin-top:12px;padding-top:12px;color:var(--muted)}
+.dw-grid{stroke:var(--line);stroke-width:1;stroke-dasharray:5 5}
+.dw-bub circle{fill:var(--sheet);stroke:var(--muted);stroke-width:1.2}
+.dw-bub text{fill:var(--muted);font-family:var(--f-mono);font-size:11px;text-anchor:middle;dominant-baseline:central}
+.dw-truss{stroke:var(--ink);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.dw-line{stroke:var(--accent);stroke-width:2.6;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.dw-area{fill:var(--accent);opacity:.1}
+.dw-node{fill:var(--sheet);stroke:var(--ink);stroke-width:1.6}
+.dw-pt{fill:var(--sheet);stroke:var(--accent);stroke-width:2}
+.dw-end{fill:var(--signal)}
+.dw-halo{fill:var(--signal);opacity:.2}
+.dw-dim{stroke:var(--muted);stroke-width:1}
+.dw-t{fill:var(--muted);font-family:var(--f-mono);font-size:10.5px}
+.dw-t.acc{fill:var(--accent);font-weight:500}
+.dw-sup{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.tag-chip rect{fill:var(--sheet);stroke:var(--line)}
+.tag-chip text{fill:var(--ink);font-family:var(--f-mono);font-size:10px;dominant-baseline:central}
+@media (prefers-reduced-motion:no-preference){
+  .dw-truss{stroke-dasharray:1200;animation:draw 1.4s ease-out both}
+  .dw-line{stroke-dasharray:500;animation:draw 1.3s .7s ease-out both}
+  .dw-area{animation:fade 1s 1.2s both}
+  .dw-halo{animation:halo 2.4s 2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes draw{from{stroke-dashoffset:1200}to{stroke-dashoffset:0}}
+  @keyframes fade{from{opacity:0}to{opacity:.1}}
+  @keyframes halo{0%,100%{transform:scale(1);opacity:.25}50%{transform:scale(1.9);opacity:0}}
+}
+
+/* Now strip */
+.now{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--sheet);margin-top:-28px;position:relative;z-index:2;box-shadow:var(--shadow)}
+.now > div{padding:18px 22px;display:flex;gap:14px;align-items:flex-start;min-width:0}
+.now > div + div{border-left:1px solid var(--line)}
+.now .ic{flex:none;width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.now .ic svg{width:19px;height:19px}
+.now strong{display:block;font-weight:600}
+.now span{color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.now{grid-template-columns:1fr;margin-top:24px}.now > div + div{border-left:0;border-top:1px solid var(--line)}}
+
+/* ---------- Sections ---------- */
+section{padding-block:80px 24px}
+@media (max-width:640px){section{padding-block:56px 12px}}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:32px}
+.sec-head .bubble{width:44px;height:44px;font-size:.9rem;color:var(--signal);border-width:2px;background:var(--sheet)}
+.sec-head h2{font-size:var(--s-3);font-weight:700;letter-spacing:-.015em}
+.sec-head p{color:var(--muted);margin-top:6px;max-width:60ch}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r)}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px}
+@media (max-width:880px){.about{grid-template-columns:1fr}}
+.story{padding:30px;display:grid;gap:16px}
+.story p{max-width:64ch}
+.story p:first-child{font-size:var(--s-1);color:var(--ink)}
+.story p:not(:first-child){color:var(--muted)}
+.path{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px;padding-top:18px;border-top:1px dashed var(--line)}
+.path span{font-family:var(--f-mono);font-size:.78rem;padding:5px 10px;border-radius:6px;background:var(--paper);border:1px solid var(--line)}
+.path span.on{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.path i{width:16px;height:1.5px;background:var(--muted);position:relative;font-style:normal}
+.path i::after{content:"";position:absolute;right:-1px;top:-3px;border-left:5px solid var(--muted);border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
+.spec{padding:26px;display:grid;gap:22px;align-content:start}
+.spec dl{margin:0;display:grid;gap:14px}
+.spec dl div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
+.spec dt{color:var(--muted)}
+.spec dd{margin:0;font-weight:500}
+.skillgroup{display:grid;gap:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-mono);font-size:.75rem;padding:4px 9px;border-radius:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);white-space:nowrap}
+
+/* Projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-size:.9rem;font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--muted);cursor:pointer;transition:all .2s}
+.filters button:hover{color:var(--ink);border-color:var(--muted)}
+.filters button b{font-family:var(--f-mono);font-weight:500;font-size:.72rem;padding:1px 7px;border-radius:999px;background:var(--paper);color:var(--muted)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
+.filters button[aria-pressed="true"] b{background:color-mix(in srgb,var(--sheet) 18%,transparent);color:var(--sheet)}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:980px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.projects{grid-template-columns:1fr}}
+.proj{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
+.proj:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.proj.fade-in{animation:pop .35s ease both}
+@keyframes pop{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+.art{height:120px;background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.art::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px}
+.art svg{position:relative;width:100%;height:100%;display:block}
+.a-ink{stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.a-mut{stroke:var(--muted);fill:none;stroke-width:1.2;stroke-linecap:round}
+.a-acc{stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.a-sig{stroke:var(--signal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-acc{fill:var(--accent)} .f-accs{fill:var(--accent-soft)} .f-sig{fill:var(--signal)} .f-sigs{fill:var(--signal-soft)} .f-sheet{fill:var(--sheet)} .f-line{fill:var(--line)} .f-ink{fill:var(--ink)}
+.proj-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.status{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:999px}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.status.live{color:var(--accent);background:var(--accent-soft)}
+.status.wip{color:var(--signal);background:var(--signal-soft)}
+.proj h3{font-size:1.3rem;font-weight:700}
+.proj p{color:var(--muted);font-size:.95rem}
+.proj .chips{margin-top:auto;padding-top:6px}
+
+.proj.featured{grid-column:1 / -1;flex-direction:row}
+.proj.featured .art{height:auto;width:44%;flex:none;border-bottom:0;border-right:1px solid var(--line);min-height:300px}
+.proj.featured .proj-body{padding:30px;gap:14px;justify-content:center}
+.proj.featured h3{font-size:var(--s-3)}
+.proj.featured p{font-size:1rem;max-width:56ch}
+.steps{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:10px}
+.steps li{display:flex;gap:12px;align-items:center;color:var(--ink);font-size:.95rem}
+.steps li b{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-mono);font-size:.72rem;font-weight:500;background:var(--signal-soft);color:var(--signal)}
+@media (max-width:820px){.proj.featured{flex-direction:column}.proj.featured .art{width:100%;min-height:240px;border-right:0;border-bottom:1px solid var(--line)}.proj.featured .proj-body{padding:22px}}
+
+/* Experience timeline */
+.tl{position:relative;padding:8px 0}
+.phase{display:flex;align-items:center;gap:12px;margin:8px 0 6px}
+.phase .label{color:var(--signal)}
+.phase::after{content:"";flex:1;height:1px;background:var(--line)}
+.item{position:relative;display:grid;grid-template-columns:170px 28px minmax(0,1fr);gap:0 18px;padding-block:6px}
+.item .when{padding-top:22px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.item .rail{position:relative}
+.item .rail::before{content:"";position:absolute;left:13px;top:0;bottom:0;width:1.5px;background:var(--line)}
+.item .rail::after{content:"";position:absolute;left:7px;top:24px;width:14px;height:14px;border-radius:50%;background:var(--sheet);border:2px solid var(--muted)}
+.item.current .rail::after{border-color:var(--accent);background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.item .box{padding:18px 22px;margin-block:4px;transition:border-color .2s,box-shadow .2s}
+.item .box:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--line));box-shadow:var(--shadow)}
+.item h3{font-size:1.12rem;font-weight:700}
+.org{color:var(--muted);font-size:.92rem;margin-top:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.now-pill{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:999px;color:var(--accent);background:var(--accent-soft)}
+.item p.desc{margin-top:8px;color:var(--muted);font-size:.95rem;max-width:68ch}
+@media (max-width:680px){
+  .item{grid-template-columns:22px minmax(0,1fr);gap:0 14px}
+  .item .when{grid-column:2;grid-row:1;text-align:left;padding-top:16px;padding-bottom:2px}
+  .item .rail{grid-column:1;grid-row:1 / span 2}
+  .item .rail::before{left:10px}
+  .item .rail::after{left:4px;top:19px}
+  .item .box{grid-column:2;grid-row:2}
+}
+
+/* Education & community */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:780px){.two{grid-template-columns:1fr}}
+.list{padding:24px 26px}
+.list .head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.list .head .ic{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:var(--signal-soft);color:var(--signal)}
+.list .head .ic svg{width:18px;height:18px}
+.list .head h3{font-size:1.15rem;font-weight:700}
+.li{padding:14px 0;border-bottom:1px dashed var(--line);display:grid;gap:2px}
+.li:last-child{border-bottom:0;padding-bottom:0}
+.li strong{font-weight:600}
+.li span{color:var(--muted);font-size:.92rem}
+
+/* Contact */
+#contact{padding-bottom:72px}
+.contact{border-radius:14px;overflow:hidden;background:var(--ink);color:var(--sheet);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.contact .left{padding:40px;display:grid;gap:14px;align-content:center;position:relative}
+.contact .left::before{content:"";position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--sheet) 7%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--sheet) 7%,transparent) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.contact .left > *{position:relative}
+.contact .label{color:color-mix(in srgb,var(--sheet) 60%,transparent)}
+.contact h2{font-size:var(--s-3);font-weight:800;letter-spacing:-.015em}
+.contact p{color:color-mix(in srgb,var(--sheet) 72%,transparent);max-width:46ch}
+.contact .right{background:color-mix(in srgb,var(--sheet) 6%,transparent);border-left:1px solid color-mix(in srgb,var(--sheet) 14%,transparent);display:grid}
+.clink{display:flex;align-items:center;gap:14px;padding:22px 28px;text-decoration:none;color:var(--sheet);border-bottom:1px solid color-mix(in srgb,var(--sheet) 14%,transparent);transition:background .2s;min-width:0}
+.clink:last-child{border-bottom:0}
+a.clink:hover{background:color-mix(in srgb,var(--sheet) 8%,transparent)}
+.clink .ic{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--sheet) 12%,transparent)}
+.clink .ic svg{width:19px;height:19px}
+.clink div{min-width:0}
+.clink small{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--sheet) 60%,transparent)}
+.clink strong{font-weight:500;word-break:break-word}
+.clink .arr{margin-left:auto;opacity:.6;transition:transform .2s,opacity .2s}
+a.clink:hover .arr{transform:translate(3px,-3px);opacity:1}
+@media (max-width:780px){.contact{grid-template-columns:1fr}.contact .left{padding:28px}.contact .right{border-left:0;border-top:1px solid color-mix(in srgb,var(--sheet) 14%,transparent)}.clink{padding:18px 24px}}
+
+footer{border-top:1px solid var(--line);padding-block:24px 32px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.totop{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:15;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s,transform .25s;box-shadow:var(--shadow)}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top"><span class="bubble">ZW</span>Zerihun Waje</a>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch light or dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="avail"><span class="dot"></span>Open to data &amp; AI roles in Berlin</span>
+          <h1>I used to design structures. Now I design <span class="hl">data systems.</span></h1>
+          <p class="lede">I'm Zeru, a data science lecturer at <strong>SRH University Berlin</strong> and an analytics engineer. I spent years as a civil and structural engineer in Ethiopia, Turkey and Germany. Today I build data pipelines, AI tools and dashboards, and I teach people how to do the same.</p>
+          <div class="cta">
+            <a class="btn primary" href="#work">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn" href="https://www.linkedin.com/in/waje" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm7 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.35h-4v-4.75c0-1.13-.02-2.6-1.58-2.6-1.59 0-1.83 1.24-1.83 2.52v4.83h-4v-11z"/></svg>LinkedIn</a>
+            <a class="btn" href="https://github.com/ZerihunWaje" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a>
+          </div>
+          <div class="facts">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Berlin, Germany</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h9M8.5 3v2M6 5c.5 3.5 3 6 6 7.5M11 5c-.8 3.6-3.5 6.6-7 8"/><path d="M13 21l4-10 4 10M14.5 17.5h5"/></svg>Amharic · English · Turkish · German</span>
+          </div>
+        </div>
+
+        <figure class="drawing" aria-label="A truss whose load path turns into a rising data line">
+          <svg viewBox="0 0 420 300" role="img" aria-hidden="true">
+            <line class="dw-grid" x1="60" y1="34" x2="60" y2="266"/>
+            <line class="dw-grid" x1="210" y1="34" x2="210" y2="266"/>
+            <line class="dw-grid" x1="360" y1="34" x2="360" y2="266"/>
+            <line class="dw-grid" x1="32" y1="228" x2="392" y2="228"/>
+            <g class="dw-bub"><circle cx="60" cy="20" r="11"/><text x="60" y="20">A</text></g>
+            <g class="dw-bub"><circle cx="210" cy="20" r="11"/><text x="210" y="20">B</text></g>
+            <g class="dw-bub"><circle cx="360" cy="20" r="11"/><text x="360" y="20">C</text></g>
+            <g class="dw-bub"><circle cx="18" cy="228" r="11"/><text x="18" y="228">1</text></g>
+            <path class="dw-area" d="M60 228 L97 196 L135 204 L172 168 L210 152 L247 126 L285 132 L322 94 L360 66 L360 228 Z"/>
+            <path class="dw-truss" d="M60 228 L360 228 M60 228 L135 178 L210 228 L285 178 L360 228 M135 178 L285 178"/>
+            <path class="dw-line" d="M60 228 L97 196 L135 204 L172 168 L210 152 L247 126 L285 132 L322 94 L360 66"/>
+            <circle class="dw-node" cx="135" cy="178" r="3.5"/><circle class="dw-node" cx="285" cy="178" r="3.5"/><circle class="dw-node" cx="210" cy="228" r="3.5"/>
+            <circle class="dw-pt" cx="172" cy="168" r="3.5"/><circle class="dw-pt" cx="247" cy="126" r="3.5"/><circle class="dw-pt" cx="322" cy="94" r="3.5"/>
+            <circle class="dw-halo" cx="360" cy="66" r="9"/>
+            <circle class="dw-end" cx="360" cy="66" r="5.5"/>
+            <path class="dw-sup" d="M60 228 l-9 14 h18 z M360 228 l-9 14 h18 z M344 248 h32"/>
+            <line class="dw-dim" x1="60" y1="262" x2="360" y2="262"/>
+            <line class="dw-dim" x1="60" y1="256" x2="60" y2="268"/><line class="dw-dim" x1="360" y1="256" x2="360" y2="268"/>
+            <text class="dw-t" x="210" y="284" text-anchor="middle">L = 2017 → 2026</text>
+            <g class="tag-chip"><rect x="250" y="40" width="94" height="22" rx="11"/><text x="262" y="51">data &amp; AI ↗</text></g>
+            <g class="tag-chip"><rect x="74" y="238" width="118" height="20" rx="10"/><text x="84" y="248">EBCS · ETABS · FEA</text></g>
+          </svg>
+          <figcaption class="mono"><span>SECTION A–C</span><span>Load path → insight</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="now" aria-label="What I'm doing now">
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span><div><strong>Teaching</strong><span>Data science at SRH University Berlin</span></div></div>
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></span><div><strong>Building</strong><span>SitePulse for construction sites</span></div></div>
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/></svg></span><div><strong>Writing</strong><span>Data posts on Ethio DataTalk</span></div></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="bubble">A</span><div><h2>About</h2><p>An engineer's way of thinking, applied to data.</p></div></div>
+      <div class="about">
+        <div class="card story">
+          <p>I started in civil engineering at Addis Ababa University, designing apartment buildings and pedestrian bridges in ETABS and SAP2000 and supervising construction sites.</p>
+          <p>Later I did research on natural-fibre composite materials at the University of Stuttgart. Somewhere along the way I noticed that the part I liked most was the data: test results, pricing analysis, site records. So I did an MSc in Data Analytics in Berlin, with a thesis on optimising CNN architectures for brain tumour segmentation.</p>
+          <p>Now I teach data science, databases and data visualisation at SRH University Berlin, and I build analytics systems: pipelines on BigQuery and dbt, ERP analytics, and RAG-based assistants. I'm especially interested in data for construction and for health care.</p>
+          <div class="path" aria-label="Career path">
+            <span>Civil engineering</span><i></i><span>Materials research</span><i></i><span>Data analytics</span><i></i><span class="on">Data &amp; AI</span>
+          </div>
+        </div>
+        <aside class="card spec">
+          <dl>
+            <div><dt class="label">Currently</dt><dd>Lecturer, SRH University Berlin</dd></div>
+            <div><dt class="label">Focus</dt><dd>Analytics engineering, applied AI, teaching</dd></div>
+            <div><dt class="label">Domains</dt><dd>Construction · ERP · Health care</dd></div>
+          </dl>
+          <div class="skillgroup"><span class="label">Data &amp; cloud</span><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">BigQuery</span><span class="chip">dbt</span><span class="chip">GCP</span><span class="chip">Power BI</span></div></div>
+          <div class="skillgroup"><span class="label">AI &amp; ML</span><div class="chips"><span class="chip">TensorFlow / Keras</span><span class="chip">LLMs &amp; RAG</span><span class="chip">Streamlit</span></div></div>
+          <div class="skillgroup"><span class="label">Engineering</span><div class="chips"><span class="chip">ETABS</span><span class="chip">SAP2000</span><span class="chip">ANSYS</span><span class="chip">EBCS</span></div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head"><span class="bubble">B</span><div><h2>Selected work</h2><p>Things I've built or am building right now.</p></div></div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">All <b></b></button>
+        <button type="button" id="f-ai" data-f="ai" aria-pressed="false">AI <b></b></button>
+        <button type="button" id="f-data" data-f="data" aria-pressed="false">Data engineering <b></b></button>
+        <button type="button" id="f-build" data-f="build" aria-pressed="false">Construction tech <b></b></button>
+        <button type="button" id="f-health" data-f="health" aria-pressed="false">Health <b></b></button>
+      </div>
+
+      <div class="projects" id="projects">
+        <!-- Featured: SitePulse -->
+        <article class="proj featured" data-tags="ai build">
+          <div class="art">
+            <svg viewBox="0 0 420 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <!-- building under construction -->
+              <path class="a-mut" d="M40 260h340"/>
+              <path class="a-ink" d="M60 260V120h110v140M60 155h110M60 190h110M60 225h110M97 120v140M133 120v140"/>
+              <path class="a-mut" d="M170 120l26-60M196 60h44M240 60v30" stroke-dasharray="4 4"/>
+              <path class="a-sig" d="M240 90v14"/>
+              <!-- phone -->
+              <rect x="222" y="74" width="140" height="196" rx="18" class="f-sheet" stroke="var(--ink)" stroke-width="1.8"/>
+              <rect x="268" y="84" width="48" height="5" rx="2.5" class="f-line"/>
+              <text x="238" y="112" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--muted)">SITE DIARY · TODAY</text>
+              <!-- entry 1 voice -->
+              <rect x="236" y="122" width="112" height="34" rx="8" class="f-accs"/>
+              <circle cx="252" cy="139" r="8" class="f-acc"/>
+              <path d="M249 135v8M252 133v12M255 136v6" stroke="var(--sheet)" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="a-acc" stroke-width="1.6" d="M266 139h4M273 134v10M278 131v16M283 135v8M288 132v14M293 136v6M298 134v10M303 137v4M308 133v12M313 136v6M318 138v2"/>
+              <!-- entry 2 photo -->
+              <rect x="236" y="164" width="112" height="44" rx="8" class="f-sigs"/>
+              <rect x="244" y="171" width="38" height="30" rx="5" class="f-sheet"/>
+              <path d="M246 197l10-11 8 8 6-5 10 8" stroke="var(--signal)" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+              <rect x="290" y="176" width="48" height="5" rx="2.5" class="f-line"/>
+              <rect x="290" y="187" width="34" height="5" rx="2.5" class="f-line"/>
+              <!-- entry 3 doc -->
+              <rect x="236" y="216" width="112" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"/>
+              <path d="M247 224h12l5 5v14h-17z" fill="var(--sheet)" stroke="var(--ink)" stroke-width="1.3" stroke-linejoin="round"/>
+              <rect x="272" y="226" width="52" height="5" rx="2.5" class="f-line"/>
+              <rect x="272" y="236" width="36" height="5" rx="2.5" class="f-line"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Construction tech · Ethiopia</span><span class="status wip">In progress</span></div>
+            <h3>SitePulse</h3>
+            <p>One place for site engineers to record daily site progress by voice, photo and document. In Ethiopian construction, site data often gets lost and BIM adoption is slow. SitePulse keeps the daily record in one searchable place.</p>
+            <ol class="steps">
+              <li><b>1</b>Engineer logs the day by voice, photo or file</li>
+              <li><b>2</b>Entries are structured into a site diary</li>
+              <li><b>3</b>Progress stays searchable for the whole project</li>
+            </ol>
+            <div class="chips"><span class="chip">Voice notes</span><span class="chip">Image logs</span><span class="chip">AI</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="data">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <rect x="34" y="28" width="58" height="64" rx="6" class="f-sheet" stroke="var(--ink)" stroke-width="1.5"/>
+            <path class="a-mut" d="M44 44h38M44 56h38M44 68h26M44 80h32"/>
+            <path class="a-acc" d="M100 60h40" stroke-dasharray="3 4"/>
+            <rect x="148" y="34" width="52" height="52" rx="26" class="f-accs" stroke="var(--accent)" stroke-width="1.5"/>
+            <path class="a-acc" d="M164 60h20M174 50v20"/>
+            <path class="a-acc" d="M208 60h30" stroke-dasharray="3 4"/>
+            <rect x="244" y="26" width="48" height="68" rx="6" class="f-sheet" stroke="var(--ink)" stroke-width="1.5"/>
+            <rect x="252" y="62" width="8" height="24" rx="2" class="f-acc"/><rect x="264" y="50" width="8" height="36" rx="2" class="f-acc"/><rect x="276" y="40" width="8" height="46" rx="2" class="f-sig"/>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Analytics engineering</span><span class="status live">Ongoing</span></div>
+            <h3>ERP analytics platform</h3>
+            <p>Analytics work with Fortix Tech Solution (Addis Ababa), building the analytics layer for their ERP and advising on data and AI practices.</p>
+            <div class="chips"><span class="chip">SQL</span><span class="chip">Data modelling</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="data">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <g><ellipse cx="70" cy="38" rx="28" ry="9" class="f-sheet" stroke="var(--ink)" stroke-width="1.5"/><path class="a-ink" d="M42 38v44c0 5 12.5 9 28 9s28-4 28-9V38"/><path class="a-mut" d="M42 60c0 5 12.5 9 28 9s28-4 28-9"/></g>
+            <path class="a-acc" d="M108 60h34"/><path class="a-acc" d="M136 54l6 6-6 6"/>
+            <rect x="150" y="36" width="64" height="48" rx="8" class="f-accs" stroke="var(--accent)" stroke-width="1.5"/>
+            <text x="182" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--accent)">dbt</text>
+            <path class="a-acc" d="M222 60h34"/><path class="a-acc" d="M250 54l6 6-6 6"/>
+            <path d="M262 76h36l-6-22h-24z" class="f-sigs" stroke="var(--signal)" stroke-width="1.5" stroke-linejoin="round"/>
+            <path class="a-sig" d="M272 54c0-8 6-12 12-12s10 5 10 10"/>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Data pipeline</span><span class="status live">Built</span></div>
+            <h3>GCP warehouse pipeline</h3>
+            <p>An end-to-end pipeline on a Google Cloud warehouse, with BigQuery for storage and dbt for tested, documented transformations.</p>
+            <div class="chips"><span class="chip">BigQuery</span><span class="chip">dbt</span><span class="chip">GCP</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="ai">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path class="a-ink" d="M40 96V60l18-12 18 12v36M86 96V40h30v56M126 96V54l22-14 22 14v42"/>
+            <path class="a-mut" d="M30 96h150"/>
+            <path d="M196 30h88a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10h-60l-14 12v-12h-14a10 10 0 0 1-10-10V40a10 10 0 0 1 10-10z" class="f-accs" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="204" y="42" width="60" height="5" rx="2.5" class="f-acc"/><rect x="204" y="53" width="40" height="5" rx="2.5" class="f-acc" opacity=".5"/>
+            <path d="M226 82h56a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8h-56a8 8 0 0 1-8-8v-8a8 8 0 0 1 8-8z" class="f-sheet" stroke="var(--line)" stroke-width="1.3"/>
+            <rect x="228" y="91" width="40" height="5" rx="2.5" class="f-line"/>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">LLM · RAG</span><span class="status live">Built</span></div>
+            <h3>AI Moer City</h3>
+            <p>A municipality chatbot that answers citizens' questions from official documents, using retrieval-augmented generation with an LLM.</p>
+            <div class="chips"><span class="chip">RAG</span><span class="chip">LLM</span><span class="chip">Python</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="ai">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path d="M54 22h62l18 18v62H54z" class="f-sheet" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/>
+            <path class="a-ink" d="M116 22v18h18"/>
+            <path class="a-mut" d="M66 52h54M66 62h54M66 72h40M66 82h50"/>
+            <rect x="64" y="58" width="58" height="8" rx="2" class="f-sig" opacity=".25"/>
+            <path class="a-acc" d="M146 62h36" stroke-dasharray="3 4"/><path class="a-acc" d="M176 56l6 6-6 6"/>
+            <rect x="192" y="28" width="96" height="68" rx="10" class="f-accs" stroke="var(--accent)" stroke-width="1.5"/>
+            <circle cx="208" cy="46" r="4" class="f-acc"/><rect x="218" y="43" width="54" height="5" rx="2.5" class="f-acc"/>
+            <circle cx="208" cy="62" r="4" class="f-sig"/><rect x="218" y="59" width="40" height="5" rx="2.5" class="f-acc" opacity=".55"/>
+            <circle cx="208" cy="78" r="4" class="f-acc"/><rect x="218" y="75" width="48" height="5" rx="2.5" class="f-acc" opacity=".55"/>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">LLM app</span><span class="status wip">In progress</span></div>
+            <h3>Brief Buddy</h3>
+            <p>A small app that explains German official letters in plain language: what the letter says, what it wants from you, and by when.</p>
+            <div class="chips"><span class="chip">Streamlit</span><span class="chip">Claude API</span><span class="chip">Python</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="ai build">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <rect x="60" y="22" width="200" height="76" rx="6" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+            <path class="a-mut" d="M60 47h200M60 72h200M127 22v76M193 22v76"/>
+            <path class="a-ink" stroke-width="2" d="M108 32l14 14-6 8 18 16 4 14 12 10"/>
+            <path class="a-mut" d="M134 70l-12 6"/>
+            <rect x="98" y="26" width="64" height="68" rx="3" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="6 4"/>
+            <rect x="98" y="12" width="74" height="15" rx="3" class="f-sig"/>
+            <text x="104" y="23" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--sheet)">crack · 0.94</text>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Computer vision</span><span class="status live">Built</span></div>
+            <h3>Deck crack detection</h3>
+            <p>An AI app that flags cracks in deck surfaces from photos, to support inspection work.</p>
+            <div class="chips"><span class="chip">Vision</span><span class="chip">Inspection</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="ai build">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <rect x="48" y="20" width="120" height="80" rx="4" class="f-sheet" stroke="var(--ink)" stroke-width="1.5"/>
+            <path class="a-ink" d="M62 34h60v52H62zM62 60h30M92 34v52"/>
+            <path class="a-mut" d="M132 34h24M132 44h24M132 54h16M138 78h24M138 86h24"/>
+            <rect x="132" y="72" width="34" height="22" fill="none" stroke="var(--muted)" stroke-width="1"/>
+            <circle cx="214" cy="56" r="26" class="f-accs" stroke="var(--accent)" stroke-width="2"/>
+            <path class="a-acc" stroke-width="3" d="M233 75l20 20"/>
+            <path class="a-acc" d="M203 56h22M214 45v22" opacity=".0"/>
+            <rect x="202" y="48" width="24" height="4" rx="2" class="f-acc"/><rect x="202" y="57" width="16" height="4" rx="2" class="f-acc" opacity=".55"/>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Document AI</span><span class="status live">Built</span></div>
+            <h3>Building document reader</h3>
+            <p>An AI assistant that reads building documents and answers questions about them, so engineers find what they need faster.</p>
+            <div class="chips"><span class="chip">LLM</span><span class="chip">Documents</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="health ai">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <rect x="52" y="14" width="92" height="92" rx="8" fill="var(--ink)"/>
+            <ellipse cx="98" cy="60" rx="32" ry="38" fill="none" stroke="var(--paper)" stroke-width="1.5" opacity=".7"/>
+            <path d="M98 24v72" stroke="var(--paper)" stroke-width="1" opacity=".35"/>
+            <path d="M74 50c6-8 14-4 18 2M104 46c8-4 14 2 16 8M78 74c8 4 14-2 18 2M104 72c6 6 12 2 14-4" stroke="var(--paper)" stroke-width="1" fill="none" opacity=".45"/>
+            <path d="M108 52c8-4 16 2 14 10s-10 10-16 6-4-14 2-16z" class="f-sig" opacity=".85"/>
+            <path class="a-acc" d="M156 60h26" stroke-dasharray="3 4"/><path class="a-acc" d="M176 54l6 6-6 6"/>
+            <g fill="none" stroke="var(--accent)" stroke-width="1.5">
+              <rect x="194" y="30" width="14" height="60" rx="2" class="f-accs"/>
+              <rect x="214" y="38" width="14" height="44" rx="2" class="f-accs"/>
+              <rect x="234" y="46" width="14" height="28" rx="2" class="f-accs"/>
+              <rect x="254" y="38" width="14" height="44" rx="2" class="f-accs"/>
+              <rect x="274" y="30" width="14" height="60" rx="2" class="f-accs"/>
+            </g>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Deep learning · MSc thesis</span><span class="status live">Completed</span></div>
+            <h3>Brain tumour segmentation</h3>
+            <p>Optimising CNN architectures for segmenting brain tumours in MRI images. Code repository in preparation.</p>
+            <div class="chips"><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">CNN</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="health data">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true" id="cells"></svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Spatial biology</span><span class="status live">On GitHub</span></div>
+            <h3>Spatial tumour–immune niches</h3>
+            <p>Spatial analysis of Xenium breast cancer data, looking at how tumour and immune cells organise into neighbourhoods.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">Xenium</span><span class="chip">Spatial</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-tags="data">
+          <div class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <rect x="40" y="16" width="240" height="88" rx="8" class="f-sheet" stroke="var(--ink)" stroke-width="1.5"/>
+            <rect x="52" y="28" width="56" height="26" rx="4" class="f-accs"/><rect x="58" y="34" width="22" height="4" rx="2" class="f-acc" opacity=".6"/><rect x="58" y="43" width="34" height="6" rx="2" class="f-acc"/>
+            <rect x="116" y="28" width="56" height="26" rx="4" class="f-sigs"/><rect x="122" y="34" width="22" height="4" rx="2" class="f-sig" opacity=".6"/><rect x="122" y="43" width="28" height="6" rx="2" class="f-sig"/>
+            <path class="a-acc" d="M52 92l20-14 18 6 20-18 18 8 18-14"/>
+            <circle cx="164" cy="64" r="3.5" class="f-sig"/>
+            <circle cx="228" cy="62" r="24" fill="none" stroke="var(--line)" stroke-width="10"/>
+            <circle cx="228" cy="62" r="24" fill="none" stroke="var(--accent)" stroke-width="10" stroke-dasharray="100 151" transform="rotate(-90 228 62)"/>
+            <circle cx="228" cy="62" r="24" fill="none" stroke="var(--signal)" stroke-width="10" stroke-dasharray="30 151" stroke-dashoffset="-100" transform="rotate(-90 228 62)"/>
+          </svg></div>
+          <div class="proj-body">
+            <div class="proj-top"><span class="label">Pipeline + BI</span><span class="status wip">In progress</span></div>
+            <h3>ZemenStock ERP dashboard</h3>
+            <p>An end-to-end pipeline from ERP customer databases (MariaDB) to a Power BI dashboard.</p>
+            <div class="chips"><span class="chip">MariaDB</span><span class="chip">Power BI</span><span class="chip">ETL</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><span class="bubble">C</span><div><h2>Experience</h2><p>Two phases, one way of working: measure carefully, then build.</p></div></div>
+      <div class="tl">
+        <div class="phase"><span class="label">Data &amp; AI</span></div>
+        <div class="item current">
+          <div class="when mono">Jun 2025 – now</div><div class="rail"></div>
+          <div class="card box"><h3>Lecturer, Data Science &amp; AI</h3><div class="org">SRH University Berlin <span class="now-pill">Current</span></div><p class="desc">Teaching data science, databases and data visualisation.</p></div>
+        </div>
+        <div class="item current">
+          <div class="when mono">Feb 2025 – now</div><div class="rail"></div>
+          <div class="card box"><h3>Analytics Engineer (consulting)</h3><div class="org">Fortix Tech Solution · Addis Ababa <span class="now-pill">Current</span></div><p class="desc">Building the ERP analytics platform and advising the team on data and AI, drawing on the German tech ecosystem.</p></div>
+        </div>
+        <div class="item">
+          <div class="when mono">2024 – 2026</div><div class="rail"></div>
+          <div class="card box"><h3>Data Analytics Instructor</h3><div class="org">Masterschool (now MSIT)</div><p class="desc">Taught and supported learners through the data analytics programme and curriculum work.</p></div>
+        </div>
+
+        <div class="phase"><span class="label">Engineering</span></div>
+        <div class="item">
+          <div class="when mono">Sep 2020 – Sep 2022</div><div class="rail"></div>
+          <div class="card box"><h3>Structural &amp; Resident Engineer</h3><div class="org">Jialan Real Estate Company · Addis Ababa</div><p class="desc">Structural design including a G+8 apartment building, design supervision and daily site control. Also analysed pricing and sales data.</p></div>
+        </div>
+        <div class="item">
+          <div class="when mono">Sep 2019 – Sep 2020</div><div class="rail"></div>
+          <div class="card box"><h3>Lecturer &amp; Research Coordinator</h3><div class="org">Dembi Dollo University</div><p class="desc">Taught structural engineering and coordinated research.</p></div>
+        </div>
+        <div class="item">
+          <div class="when mono">Oct 2017 – Nov 2018</div><div class="rail"></div>
+          <div class="card box"><h3>Graduate Researcher</h3><div class="org">University of Stuttgart · ITKE BioMat</div><p class="desc">Research on load-bearing natural-fibre composites: prototypes, lab testing and finite element analysis in ANSYS.</p></div>
+        </div>
+        <div class="item">
+          <div class="when mono">Feb – Aug 2017</div><div class="rail"></div>
+          <div class="card box"><h3>Data Analyst Intern</h3><div class="org">Pendik Municipality · Istanbul</div><p class="desc">Data work alongside support for site supervision and building plan revisions.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head"><span class="bubble">D</span><div><h2>Education &amp; community</h2><p>Where I learned, and where I give back.</p></div></div>
+      <div class="two">
+        <div class="card list">
+          <div class="head"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span><h3>Education</h3></div>
+          <div class="li"><strong>MSc Data Analytics</strong><span>Berlin School of Business and Innovation · 2024</span></div>
+          <div class="li"><strong>MSc programme, Building Physics &amp; Materials</strong><span>Mimar Sinan Fine Arts University, Istanbul · 2016–2019</span></div>
+          <div class="li"><strong>BSc Civil Engineering</strong><span>Addis Ababa University</span></div>
+        </div>
+        <div class="card list">
+          <div class="head"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.8.4 5 2.8 5 5.8"/></svg></span><h3>Community</h3></div>
+          <div class="li"><strong>Ethio DataTalk</strong><span>My LinkedIn channel with regular posts on data concepts, in plain language</span></div>
+          <div class="li"><strong>Online tech academy</strong><span>Building courses in data analytics, AI and full-stack development for the Ethiopian diaspora</span></div>
+          <div class="li"><strong>Hackathon mentor</strong><span>BCBT AI Entrepreneurship Hackathon, CIC Berlin · Oct 2026</span></div>
+          <div class="li"><strong>EPNE member</strong><span>Ethiopian Professionals Network in Europe, Germany</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="left">
+          <span class="label">Contact</span>
+          <h2>Let's build something with data.</h2>
+          <p>Open to conversations about analytics engineering, AI projects, teaching and research.</p>
+        </div>
+        <div class="right">
+          <a class="clink" href="https://www.linkedin.com/in/waje" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm7 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.35h-4v-4.75c0-1.13-.02-2.6-1.58-2.6-1.59 0-1.83 1.24-1.83 2.52v4.83h-4v-11z"/></svg></span>
+            <div><small>LinkedIn</small><strong>linkedin.com/in/waje</strong></div><span class="arr">↗</span>
+          </a>
+          <a class="clink" href="https://github.com/ZerihunWaje" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.980 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.570 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+            <div><small>GitHub</small><strong>github.com/ZerihunWaje</strong></div><span class="arr">↗</span>
+          </a>
+          <div class="clink">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><small>Location</small><strong>Berlin, Germany</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap mono"><span>© 2026 Zerihun Waje</span><span>Sheet ZW-01 · Drawn in Berlin</span></div></footer>
+
+<a class="icon-btn totop" id="totop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+
+<script>
+(function(){
+  /* Theme toggle */
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('zw-theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  document.getElementById('theme-btn').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('zw-theme', next); } catch(e){}
+  });
+
+  /* Mobile menu */
+  var nav = document.getElementById('nav'), mb = document.getElementById('menu-btn');
+  mb.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); mb.setAttribute('aria-expanded','false'); }); });
+
+  /* Active section in nav */
+  var links = {}; nav.querySelectorAll('a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          Object.keys(links).forEach(function(k){ links[k].classList.toggle('active', k === en.target.id); });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  /* Back to top */
+  var tt = document.getElementById('totop');
+  window.addEventListener('scroll', function(){ tt.classList.toggle('show', window.scrollY > 700); }, { passive: true });
+
+  /* Project filters with counts */
+  var btns = document.querySelectorAll('.filters button');
+  var cards = document.querySelectorAll('#projects .proj');
+  btns.forEach(function(b){
+    var f = b.getAttribute('data-f'), n = 0;
+    cards.forEach(function(c){ if (f === 'all' || c.getAttribute('data-tags').split(' ').indexOf(f) > -1) n++; });
+    b.querySelector('b').textContent = n;
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      cards.forEach(function(c){
+        var show = f === 'all' || c.getAttribute('data-tags').split(' ').indexOf(f) > -1;
+        c.hidden = !show;
+        c.classList.remove('fade-in');
+        if (show) { void c.offsetWidth; c.classList.add('fade-in'); }
+      });
+    });
+  });
+
+  /* Spatial cells illustration (seeded, so it looks the same every time) */
+  var svg = document.getElementById('cells'), ns = 'http://www.w3.org/2000/svg', seed = 7;
+  function rnd(){ seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  var clusters = [{x:110,y:58,c:'var(--signal)'},{x:210,y:62,c:'var(--accent)'}];
+  for (var i = 0; i < 120; i++) {
+    var x = 20 + rnd()*280, y = 10 + rnd()*100, fill = 'var(--muted)', r = 2.2, op = .35;
+    clusters.forEach(function(cl, k){
+      var d = Math.hypot(x - cl.x, (y - cl.y) * 1.4);
+      if (d < 46 && rnd() > d/60) { fill = cl.c; r = 3; op = .9; }
+    });
+    var c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx', x.toFixed(1)); c.setAttribute('cy', y.toFixed(1)); c.setAttribute('r', r);
+    c.setAttribute('fill', fill); c.setAttribute('opacity', op);
+    svg.appendChild(c);
+  }
+  var ring1 = document.createElementNS(ns,'ellipse'); ring1.setAttribute('cx',110); ring1.setAttribute('cy',58); ring1.setAttribute('rx',48); ring1.setAttribute('ry',36); ring1.setAttribute('fill','none'); ring1.setAttribute('stroke','var(--signal)'); ring1.setAttribute('stroke-dasharray','4 4'); svg.appendChild(ring1);
+  var ring2 = document.createElementNS(ns,'ellipse'); ring2.setAttribute('cx',210); ring2.setAttribute('cy',62); ring2.setAttribute('rx',48); ring2.setAttribute('ry',36); ring2.setAttribute('fill','none'); ring2.setAttribute('stroke','var(--accent)'); ring2.setAttribute('stroke-dasharray','4 4'); svg.appendChild(ring2);
+})();
+</script>
+</body>
+</html>
